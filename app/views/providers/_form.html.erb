@@ -1,0 +1,23 @@
+<%= simple_form_for(provider) do |f| %>
+  <% if provider.errors.any? %>
+    <div id="error_explanation">
+      <h5><%= pluralize(provider.errors.count, "error") %> prohibited this provider from being saved:</h5>
+
+      <ul>
+      <% provider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :phone %>
+  <%= f.input :email %>
+
+  <div class="actions">
+    <%= f.submit class:"btn btn-success" %>
+  </div>
+<% end %>

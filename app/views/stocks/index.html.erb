@@ -1,0 +1,22 @@
+<p id="notice">
+  <%= notice %>
+</p>
+
+<div class="row">
+  <% @stocks.each do |stock| %>
+  <div class="col-md-6">
+        <%= render partial:'stocks/product_card', locals: {
+          picture: stock.product.picture.url,
+          name: stock.product.name,
+          description: stock.product.description,
+          quantity: stock.quantity,
+          sale_price: stock.product.sale_price,
+          purchase_price: stock.product.purchase_price,
+          product_id: stock.product_id
+          } %>
+      <% end %>
+  </div>
+</div>
+
+
+<%= link_to 'New Stock', new_stock_path %>

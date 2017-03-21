@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <b class="panel-title"><%= name %></b>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">
+            <img src="<%= picture %>" alt="<%= name %>" class="responsive-img">
+        </div>
+        <div class="col-xs-9">
+            <ul class="card-list">
+                <li>
+                   <b>Description: </b> <%= description %>
+                </li>
+                <li>
+                    <b>Quantity: </b> <%= quantity %>
+                </li>
+                <li>
+                    <b>Sale Price: </b> <%= sale_price %>
+                </li>
+                <li>
+                    <b>Purchase Price: </b> <%= purchase_price %>
+                </li>
+            </ul>
+        </div>
+    </div>
+      <div class="panel-footer">
+          <button class="btn btn-success">Sell</button>
+          <%= link_to "Edit", edit_product_path(product_id), class:"btn btn-default" %>
+      </div>
+</div>
