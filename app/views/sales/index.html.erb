@@ -1,5 +1,10 @@
 <h3>Sales</h3>
 
+<h4><b>New Sale</b></h4>
+<div class="rounded-box shadow-2dp">
+  <%= render 'form', sale: @sale %>
+</div>
+
 <h4><b>Last 5 sales</b></h4>
 
 <div class="col-12 col-sm-12 col-lg-12">
@@ -13,16 +18,16 @@
         <th>Customer</th>
         <th>Sale Date</th>
       </tr>
+      <% @sales.each do |sale| %>
       <tr>
-        <% @sales.each do |sale| %>
         <td><%= sale.stock.stock_name %></td>
         <td><%= q = sale.quantity %></td>
         <td><%= p = sale.stock.stock_price %></td>
         <td><%= q*p %></td>
         <td><%= sale.notes %></td>
         <td><%= human_date(sale.created_at) %></td>
-        <% end %>
       </tr>
+      <% end %>
     </table>
   </div>
 </div>

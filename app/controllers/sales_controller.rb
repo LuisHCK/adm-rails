@@ -5,6 +5,7 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @sales = Sale.all
+    @sale = Sale.new
   end
 
   # GET /sales/1
