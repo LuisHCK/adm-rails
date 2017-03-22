@@ -27,6 +27,7 @@ class StocksController < ApplicationController
   # POST /stocks.json
   def create
     @stock = Stock.new(stock_params)
+    @stock.lot = SecureRandom.hex(4)
 
     respond_to do |format|
       if @stock.save
