@@ -1,0 +1,18 @@
+<%= simple_form_for(@organization) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :logo %>
+    <%= f.input :email %>
+    <%= f.input :address %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :country %>
+    <%= f.input :city %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
