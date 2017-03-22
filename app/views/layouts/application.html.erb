@@ -48,6 +48,12 @@
             <li><a href="<%= url_for(stocks_path) %>"><%= fa_icon('database', class:"nav-icon") %> Stock</a></li>
             <li><a href="<%= url_for(providers_path) %>"><%= fa_icon('users', class:"nav-icon") %> Providers</a></li>
             <li><a href="<%= url_for(stocks_path) %>"><%= fa_icon('bar-chart', class:"nav-icon") %> Charts</a></li>
+            <li>
+            <%= link_to(destroy_user_session_path, :method => :delete) do%>
+              Logout
+              <%= icon('lock', class:"nav-icon") %>
+            <% end %>
+            </li>
 
           </ul>
 
