@@ -1,37 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th>Purchase price</th>
-      <th>Sale price</th>
-      <th>Times sold</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.picture %></td>
-        <td><%= product.purchase_price %></td>
-        <td><%= product.sale_price %></td>
-        <td><%= product.times_sold %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+<h3>Products</h3>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+    <div class="bootcards-list">
+      <div class="panel panel-default">
+        <div class="list-group">
+          <% @products.each do |product| %>
+            <a class="list-group-item" href="<%= product_path(product) %>">
+        <img src="<%= product.picture.url %>" class="img-rounded pull-left list-img"/>
+        <h4 class="list-group-item-heading"><%= product.name %></h4>
+        <p class="list-group-item-text">
+            <b>Sale Price: </b><%= product.sale_price %>
+        </p>
+      </a>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

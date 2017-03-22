@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h3>Sales</h3>
 
-<h1>Sales</h1>
+<h4><b>Last 5 sales</b></h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Quantity</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sales.each do |sale| %>
-      <tr>
-        <td><%= sale.quantity %></td>
-        <td><%= sale.notes %></td>
-        <td><%= link_to 'Show', sale %></td>
-        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
-        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="col-12 col-sm-12 col-lg-12">
+  <div class="table-responsive">
+    <table class="table table-hover table-striped shadow-2dp">
+      <tr class="info">
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Customer</th>
+        <th>Sale Date</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Sale', new_sale_path %>
+      <tr>
+        <% @sales.each do |sale| %>
+        <td><%= sale.stock.stock_name %></td>
+        <td><%= q = sale.quantity %></td>
+        <td><%= p = sale.stock.stock_price %></td>
+        <td><%= q*p %></td>
+        <td><%= sale.notes %></td>
+        <td><%= human_date(sale.created_at) %></td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+</div>
